@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    container_name: web
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    env_file:
+      - envs/local/web/web.env
+    command: python manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15.1-bullseye
+    container_name: db
+    volumes:
+      - postgres_db_data:/var/lib/postgresql/data/
+    env_file:
+      - envs/local/db/db.env
+    ports:
+      - "5432:5432"
+    command: ["postgres", "-c", "log_statement=all"]
+
+volumes:
+  postgres_db_data:
