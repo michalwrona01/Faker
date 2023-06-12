@@ -31,12 +31,14 @@ ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*,").split(",")
 # Application definition
 
 INSTALLED_APPS = [
+    "rest_framework",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "drf_yasg",
     "app",
 ]
 
@@ -50,7 +52,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "faker.urls"
+ROOT_URLCONF = "faker_app.urls"
 
 TEMPLATES = [
     {
@@ -68,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "faker.wsgi.application"
+WSGI_APPLICATION = "faker_app.wsgi.application"
 
 
 # Database
