@@ -19,8 +19,6 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 
-import app.urls as app_urls
-
 schema_view = get_schema_view(
     openapi.Info(
         title="Faker API",
@@ -40,5 +38,6 @@ urlpatterns = [
         schema_view.with_ui("swagger", cache_timeout=0),
         name="schema-swagger-ui",
     ),
-    path("api/", include(app_urls)),
+    path("api/", include("app.urls")),
+    path("auth/", include("authentication.urls")),
 ]

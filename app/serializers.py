@@ -2,7 +2,7 @@ from faker import Faker
 from rest_framework import serializers
 
 
-class FakerRequestSerializer(serializers.Serializer):
+class FakerSerializer(serializers.Serializer):
     """Faker request serializer class"""
 
     first_name = serializers.BooleanField(required=False)
