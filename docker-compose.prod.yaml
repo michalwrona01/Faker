@@ -6,8 +6,8 @@ services:
     container_name: faker_app
     volumes:
       - .:/code
-    expose:
-      - "8083"
+    ports:
+      - "8083:8083"
     env_file:
       - envs/local/web/web.env
     networks:
