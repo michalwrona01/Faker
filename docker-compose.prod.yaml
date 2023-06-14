@@ -9,7 +9,7 @@ services:
     ports:
       - "8083:8083"
     env_file:
-      - envs/local/web/web.env
+      - envs/prod/web/web.env
     networks:
       - nginx_network
     command: python manage.py runserver 0.0.0.0:8083
@@ -22,7 +22,7 @@ services:
     volumes:
       - postgres_db_data:/var/lib/postgresql/data/
     env_file:
-      - envs/local/db/db.env
+      - envs/prod/db/db.env
     expose:
       - "5432"
     networks:
